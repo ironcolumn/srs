@@ -11,7 +11,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * @author zzy
+ * @author zzy  3
  */
 @EntityScan ( basePackages = "com/srs/domain" )
 @EnableJpaRepositories ( basePackages = "com.srs.dao" )
@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class SrsApplication {
 
     public static void main ( String[] args ) {
-
+//dad
         SpringApplication.run ( SrsApplication.class , args );
     }
 }
