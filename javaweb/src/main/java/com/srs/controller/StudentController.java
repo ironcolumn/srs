@@ -1,28 +1,56 @@
 package com.srs.controller;
 
-import com.srs.domain.Student;
-import com.srs.service.StudentService;
+
+import com.srs.bind.CurrentUser;
+import com.srs.po.course.Course;
+import com.srs.po.student.Student;
+import com.srs.po.user.SysUser;
+import com.srs.service.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
-/**
- * @author zzy on 2018/6/21 23:44.
- * @version 1.0
- */
-@CrossOrigin
 @RestController
-@RequestMapping ( "/student" )
+@RequestMapping (value = "students", produces = { APPLICATION_JSON_UTF8_VALUE})
 public class StudentController {
 
     @Autowired
     StudentService studentService;
 
-    @GetMapping ( "queryAll" )
-    @ResponseBody
-    public List < Student > queryAll ( ) {
-
-        return studentService.getAll ( );
+    @GetMapping (value = "studyPlans")
+    public ResponseEntity getStudyPlans ( @CurrentUser SysUser sysUser ) {
+        if (sysUser == null) {
+            return ResponseEntity.badRequest ( ).body ("{'msg','无法获取当前登陆用户'}" );
+        } else if (sysUser.getStudent() == null) {
+            return ResponseEntity.badRequest ( ).body ("{'msg','当前登陆用户不是学生'}" );
+        }
+        Student student = studentService.findStudentById(sysUser.getStudent().getId());
+        return ResponseEntity.ok (studentService.getStudyPlans (student ) );
     }
+
+
+    @PostMapping (value = "studyPlans")
+    public ResponseEntity addOneStudyPlanRecord ( @RequestBody Course course, @CurrentUser SysUser sysUser ) {
+        if (sysUser == null) {
+            return ResponseEntity.badRequest ( ).body ("{'msg','无法获取当前登陆用户'}" );
+        } else if (sysUser.getStudent() == null) {
+            return ResponseEntity.badRequest ( ).body ("{'msg','当前登陆用户不是学生'}" );
+        }
+        Student student = studentService.findStudentById (sysUser.getStudent ( ).getId ( ) );
+        return ResponseEntity.ok (studentService.addOneStudyPlanRecord (course,student ) );
+    }
+
+    @DeleteMapping (value = "studyPlans/{id}")
+    public ResponseEntity deleteOneStudyPlanRecord ( @PathVariable Integer id, @CurrentUser SysUser sysUser ) {
+        if (sysUser == null) {
+            return ResponseEntity.badRequest ( ).body ("{'msg','无法获取当前登陆用户'}" );
+        } else if (sysUser.getStudent() == null) {
+            return ResponseEntity.badRequest ( ).body ("{'msg','当前登陆用户不是学生'}" );
+        }
+        Student student = studentService.findStudentById(sysUser.getStudent().getId());
+        return ResponseEntity.ok (studentService.deleteOneStudentPlanRecord (id,student ) );
+    }
+
 }
