@@ -3,7 +3,7 @@ package com.srs.domain;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.srs.po.transcript.Transcript;
+import com.srs.po.Transcript;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class TranscriptCatalog {
             objectNode.put("sectionSn", transcript.getSection().getSectionSn());
             objectNode.put("courseName", transcript.getSection().getCourse().getCourseName());
             objectNode.put("credit", transcript.getSection().getCourse().getCredit());
-            objectNode.put("teacherName", transcript.getSection().getTeacher().getName());
+            objectNode.put ("teacherName", transcript.getSection().getProfessor ( ).getName ( ) );
             objectNode.put("room", transcript.getSection().getRoom());
             objectNode.put("dayOfWeek", transcript.getSection().getDayOfWeek());
             objectNode.put("timeOfDay", transcript.getSection().getTimeOfDay());

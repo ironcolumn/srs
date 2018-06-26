@@ -1,6 +1,6 @@
 package com.srs.controller;
 
-import com.srs.po.course.Course;
+import com.srs.po.Course;
 import com.srs.service.course.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

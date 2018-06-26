@@ -1,9 +1,9 @@
 package com.srs.controller;
 
 import com.srs.bind.CurrentUser;
-import com.srs.po.section.Section;
-import com.srs.po.transcript.Transcript;
-import com.srs.po.user.SysUser;
+import com.srs.po.Section;
+import com.srs.po.Transcript;
+import com.srs.po.SysUser;
 import com.srs.service.section.SectionService;
 import com.srs.service.transcript.TranscriptService;
 import com.srs.service.user.SysUserService;

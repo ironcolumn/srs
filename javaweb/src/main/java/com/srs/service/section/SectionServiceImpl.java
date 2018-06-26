@@ -3,9 +3,9 @@ package com.srs.service.section;
 import com.srs.dao.SectionRepository;
 import com.srs.dao.SysUserRepository;
 import com.srs.domain.SectionCatalog;
-import com.srs.po.section.Section;
-import com.srs.po.teacher.Teacher;
-import com.srs.po.user.SysUser;
+import com.srs.po.Professor;
+import com.srs.po.Section;
+import com.srs.po.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,24 +61,24 @@ public class SectionServiceImpl implements SectionService {
         if ( user.isPresent ( ) ) {
             sysUser = user.get ( );
         }
-        Teacher teacher = sysUser.getTeacher ( );
-        return catalog.getSectionJson ( teacher.getSections ( ) );
+        Professor professor = sysUser.getProfessor ( );
+        return catalog.getSectionJson ( professor.getSections ( ) );
     }
 
     @Override
     public String getTeacherSectionAvailable ( ) {
 
-        return catalog.getSectionJson ( sectionRepository.findSectionsByTeacherNull ( ) );
+        return catalog.getSectionJson ( sectionRepository.findSectionsByProfessorNull ( ) );
     }
 
     @Override
     public String getStudentSectionAvailable ( ) {
 
-        return catalog.getSectionJson ( sectionRepository.findSectionsByTeacherNotNull ( ) );
+        return catalog.getSectionJson ( sectionRepository.findSectionsByProfessorNotNull ( ) );
     }
 
     @Override
-    public Section chooseOneSection ( Teacher teacher , Section section ) {
+    public Section chooseOneSection ( Professor professor , Section section ) {
 
         if ( section.getCourse ( ) == null ) {
             Optional < Section > id = sectionRepository.findById ( section.getId ( ) );
@@ -86,7 +86,7 @@ public class SectionServiceImpl implements SectionService {
                 section = id.get ( );
             }
         }
-        section.setTeacher ( teacher );
+        section.setProfessor ( professor );
         return sectionRepository.save ( section );
     }
 
@@ -100,7 +100,7 @@ public class SectionServiceImpl implements SectionService {
         } else {
             return false;
         }
-        section.setTeacher ( null );
+        section.setProfessor ( null );
         sectionRepository.save ( section );
         return true;
     }

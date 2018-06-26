@@ -1,8 +1,8 @@
 package com.srs.service.transcript;
 
-import com.srs.po.section.Section;
-import com.srs.po.student.Student;
-import com.srs.po.transcript.Transcript;
+import com.srs.po.Section;
+import com.srs.po.Student;
+import com.srs.po.Transcript;
 
 import java.util.List;
 

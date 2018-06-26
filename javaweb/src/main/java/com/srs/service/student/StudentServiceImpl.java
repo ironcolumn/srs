@@ -1,8 +1,8 @@
 package com.srs.service.student;
 
 import com.srs.dao.StudentRepository;
-import com.srs.po.course.Course;
-import com.srs.po.student.Student;
+import com.srs.po.Course;
+import com.srs.po.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

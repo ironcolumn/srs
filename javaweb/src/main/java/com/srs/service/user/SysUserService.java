@@ -1,6 +1,6 @@
 package com.srs.service.user;
 
-import com.srs.po.user.SysUser;
+import com.srs.po.SysUser;
 
 public interface SysUserService {
 

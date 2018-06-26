@@ -1,7 +1,7 @@
 package com.srs.controller;
 
 import com.srs.bind.CurrentUser;
-import com.srs.po.user.SysUser;
+import com.srs.po.SysUser;
 import com.srs.service.auth.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;

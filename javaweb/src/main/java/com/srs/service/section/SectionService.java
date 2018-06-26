@@ -1,8 +1,8 @@
 package com.srs.service.section;
 
-import com.srs.po.section.Section;
-import com.srs.po.teacher.Teacher;
-import com.srs.po.user.SysUser;
+import com.srs.po.Professor;
+import com.srs.po.Section;
+import com.srs.po.SysUser;
 
 public interface SectionService {
 
@@ -64,10 +64,10 @@ public interface SectionService {
      * 教师新增一条选课记录
      *
      * @param section 当前要选的section
-     * @param teacher 当前登陆的teacher
+     * @param professor 当前登陆的teacher
      * @return 保存后的section记录
      */
-    Section chooseOneSection ( Teacher teacher , Section section );
+    Section chooseOneSection ( Professor professor , Section section );
 
     /**
      * 老师退选一项Section

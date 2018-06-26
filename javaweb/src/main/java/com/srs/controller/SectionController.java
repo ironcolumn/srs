@@ -1,8 +1,8 @@
 package com.srs.controller;
 
 import com.srs.bind.CurrentUser;
-import com.srs.po.section.Section;
-import com.srs.po.user.SysUser;
+import com.srs.po.Section;
+import com.srs.po.SysUser;
 import com.srs.service.section.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +40,7 @@ public class SectionController {
 
     @PostMapping (value = "choose")
     public ResponseEntity chooseSection ( @CurrentUser SysUser sysUser, @RequestBody Section section ) {
-        return ResponseEntity.ok (sectionService.chooseOneSection (sysUser.getTeacher ( ), section ) );
+        return ResponseEntity.ok (sectionService.chooseOneSection (sysUser.getProfessor ( ), section ) );
     }
 
     @PostMapping (value = "")

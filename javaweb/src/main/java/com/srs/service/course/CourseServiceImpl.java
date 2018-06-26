@@ -2,12 +2,13 @@ package com.srs.service.course;
 
 import com.srs.dao.CourseRepository;
 import com.srs.domain.CourseCatalog;
-import com.srs.po.course.Course;
+import com.srs.po.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -27,13 +28,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     @Transactional ( rollbackFor = Exception.class )
     public Course saveOne ( Course course ) {
-        //        for (int i = 0; i < course.getPrevCourses().size(); i++) {
-        //
-        //            Optional<Course> coursePo = courseRepository.findById(course.getPrevCourses().get(i).getId());
-        //            if (coursePo.isPresent()) {
-        //                course.getPrevCourses().set(i, coursePo.get());
-        //            }
-        //        }
+
         return courseRepository.save ( course );
 
     }
@@ -56,5 +51,12 @@ public class CourseServiceImpl implements CourseService {
 
         courseRepository.deleteById ( id );
         return true;
+    }
+
+    @Override
+    public Course findCourseById ( Integer id ) {
+
+        Optional < Course > courseOptional = courseRepository.findById ( id );
+        return courseOptional.orElse ( null );
     }
 }

@@ -4,9 +4,9 @@ import com.srs.dao.SectionRepository;
 import com.srs.dao.SysUserRepository;
 import com.srs.dao.TranscriptRepository;
 import com.srs.domain.TranscriptCatalog;
-import com.srs.po.section.Section;
-import com.srs.po.student.Student;
-import com.srs.po.transcript.Transcript;
+import com.srs.po.Section;
+import com.srs.po.Student;
+import com.srs.po.Transcript;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

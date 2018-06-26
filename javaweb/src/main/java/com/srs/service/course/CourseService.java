@@ -1,6 +1,6 @@
 package com.srs.service.course;
 
-import com.srs.po.course.Course;
+import com.srs.po.Course;
 
 import java.util.List;
 
@@ -21,6 +21,11 @@ public interface CourseService {
      * @return 已保存的课程
      */
     Course saveOne ( Course course );
+
+    /**
+     * @return
+     */
+    Course findCourseById ( Integer id );
 
     /**
      * 保存所给全部课程

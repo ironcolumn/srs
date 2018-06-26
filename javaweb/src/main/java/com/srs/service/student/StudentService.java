@@ -1,7 +1,7 @@
 package com.srs.service.student;
 
-import com.srs.po.course.Course;
-import com.srs.po.student.Student;
+import com.srs.po.Course;
+import com.srs.po.Student;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public interface StudentService {
      *
      * @return 新的学习计划
      */
-    public List < Course > deleteOneStudentPlanRecord ( Integer courseId , Student student );
+    List < Course > deleteOneStudentPlanRecord ( Integer courseId , Student student );
 
     /**
      * 根据id查询学生
@@ -43,5 +43,5 @@ public interface StudentService {
      *
      * @return 学生OR null
      */
-    public Student findStudentById ( Integer id );
+    Student findStudentById ( Integer id );
 }

@@ -1,7 +1,7 @@
 package com.srs.specification;
 
-import com.srs.po.course.Course;
-import com.srs.po.transcript.Transcript;
+import com.srs.po.Course;
+import com.srs.po.Transcript;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

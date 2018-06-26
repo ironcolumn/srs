@@ -2,7 +2,7 @@ package com.srs.application;
 
 import com.srs.bind.CurrentUserMethodArgumentResolver;
 import com.srs.dao.SysUserRepository;
-import com.srs.po.user.SysUser;
+import com.srs.po.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
