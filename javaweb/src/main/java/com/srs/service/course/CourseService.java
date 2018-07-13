@@ -1,6 +1,6 @@
 package com.srs.service.course;
 
-import com.srs.po.Course;
+import com.srs.model.Course;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package com.srs.service.auth;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.srs.domain.Menu;
-import com.srs.po.SysUser;
+import com.srs.model.SysUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

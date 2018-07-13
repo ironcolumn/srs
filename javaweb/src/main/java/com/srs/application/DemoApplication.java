@@ -2,7 +2,7 @@ package com.srs.application;
 
 import com.srs.bind.CurrentUserMethodArgumentResolver;
 import com.srs.dao.SysUserRepository;
-import com.srs.po.SysUser;
+import com.srs.model.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,7 +33,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @SpringBootApplication ( scanBasePackages = { "com.srs.controller" , "com.srs.service" , "com.srs.specification" , "com.srs.domain" } )
-@EntityScan ( basePackages = "com.srs.po" )
+@EntityScan ( basePackages = "com.srs.model" )
 @EnableJpaRepositories ( basePackages = "com.srs.dao" )
 @EnableConfigurationProperties
 public class DemoApplication implements WebMvcConfigurer {

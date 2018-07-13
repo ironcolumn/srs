@@ -1,21 +1,15 @@
 package com.srs.service.transcript;
 
-import com.srs.po.Section;
-import com.srs.po.Student;
-import com.srs.po.Transcript;
+import com.srs.model.Section;
+import com.srs.model.Student;
+import com.srs.model.Transcript;
 
 import java.util.List;
 
 public interface TranscriptService {
 
-    /**
-     * 返回传入学生的所有选课记录，包括成绩单和选课状态
-     *
-     * @param student 要查询的学生
-     *
-     * @return json格式的Transcripts
-     */
     String findAllByStudentJson ( Student student );
+    String findAllByStudentJsonGraded ( Student student );
 
     /**
      * 选一门课

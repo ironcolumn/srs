@@ -1,7 +1,7 @@
 package com.srs.service.student;
 
-import com.srs.po.Course;
-import com.srs.po.Student;
+import com.srs.model.Course;
+import com.srs.model.Student;
 
 import java.util.List;
 

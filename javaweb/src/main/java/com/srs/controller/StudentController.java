@@ -1,9 +1,9 @@
 package com.srs.controller;
 
 import com.srs.bind.CurrentUser;
-import com.srs.po.Course;
-import com.srs.po.Student;
-import com.srs.po.SysUser;
+import com.srs.model.Course;
+import com.srs.model.Student;
+import com.srs.model.SysUser;
 import com.srs.service.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +39,7 @@ public class StudentController {
             return ResponseEntity.badRequest ( ).body ( "{'msg','当前登陆用户不是学生'}" );
         }
         Student student = studentService.findStudentById ( sysUser.getStudent ( ).getId ( ) );
-        return ResponseEntity.ok ( student.getStudyPlan ( ).add ( course ) );
+        return ResponseEntity.ok ( studentService.addOneStudyPlanRecord ( course , student ) );
     }
 
     @DeleteMapping ( value = "studyPlans/{id}" )
@@ -51,7 +51,7 @@ public class StudentController {
             return ResponseEntity.badRequest ( ).body ( "{'msg','当前登陆用户不是学生'}" );
         }
         Student student = studentService.findStudentById ( sysUser.getStudent ( ).getId ( ) );
-        return ResponseEntity.ok ( studentService.deleteOneStudentPlanRecord ( id ,student));
+        return ResponseEntity.ok ( studentService.deleteOneStudentPlanRecord ( id , student ) );
     }
 
 }

@@ -1,8 +1,8 @@
 package com.srs.controller;
 
 import com.srs.bind.CurrentUser;
-import com.srs.po.Section;
-import com.srs.po.SysUser;
+import com.srs.model.Section;
+import com.srs.model.SysUser;
 import com.srs.service.section.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

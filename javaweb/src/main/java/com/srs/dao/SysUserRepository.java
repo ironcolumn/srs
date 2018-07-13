@@ -1,6 +1,6 @@
 package com.srs.dao;
 
-import com.srs.po.SysUser;
+import com.srs.model.SysUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

@@ -1,4 +1,4 @@
-package com.srs.po;
+package com.srs.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

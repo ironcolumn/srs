@@ -1,8 +1,8 @@
-package com.srs.po;
+package com.srs.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.srs.specification.PrevCourseSpecification;
-import com.srs.specification.SelectOnceSpecification;
+import com.srs.specification.HasSelectedSpecification;
 import com.srs.specification.Specification;
 import com.srs.specification.StudyPlanSpecification;
 
@@ -21,7 +21,7 @@ public class Transcript {
 
     private Integer grade;
 
-    private final Specification<Transcript> selectOnce = new SelectOnceSpecification ();
+    private final Specification<Transcript> selectOnce = new HasSelectedSpecification ();
 
     private final Specification<Transcript> prevCourse = new PrevCourseSpecification ();
 

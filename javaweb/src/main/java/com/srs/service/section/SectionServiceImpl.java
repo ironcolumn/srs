@@ -3,9 +3,9 @@ package com.srs.service.section;
 import com.srs.dao.SectionRepository;
 import com.srs.dao.SysUserRepository;
 import com.srs.domain.SectionCatalog;
-import com.srs.po.Professor;
-import com.srs.po.Section;
-import com.srs.po.SysUser;
+import com.srs.model.Professor;
+import com.srs.model.Section;
+import com.srs.model.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.srs.service.auth;
 
-import com.srs.po.SysUser;
+import com.srs.model.SysUser;
 
 public interface AuthService {
 

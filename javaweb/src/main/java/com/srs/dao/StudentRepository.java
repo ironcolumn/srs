@@ -1,7 +1,7 @@
 package com.srs.dao;
 
-import com.srs.po.Course;
-import com.srs.po.Student;
+import com.srs.model.Course;
+import com.srs.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StudentRepository extends JpaRepository < Student, Integer > {

@@ -3,7 +3,7 @@ package com.srs.domain;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.srs.po.Section;
+import com.srs.model.Section;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class SectionCatalog {
             objectNode.put("courseSn", section.getCourse().getCourseSn());
             objectNode.put("courseName", section.getCourse().getCourseName());
             objectNode.put("credit", section.getCourse().getCredit());
-            objectNode.put("capacityWithFraction", section.getCapacity()-size + "/" + section.getCapacity());
+            objectNode.put("capacityWithFraction", size + "/" + section.getCapacity());
             arrayNode.add(objectNode);
         }
         return arrayNode.toString();

@@ -3,7 +3,7 @@ package com.srs.domain;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.srs.po.Course;
+import com.srs.model.Course;
 
 import java.util.List;
 
@@ -21,7 +21,11 @@ public class CourseCatalog {
             for ( Course pre : course.getPrevCourses ( ) ) {
                 preString.append ( pre.getCourseName ( ) ).append ( "," );
             }
-            objectNode.put ( "prevCoursesString" , preString.toString ( ) );
+            String substring = preString.toString ( );
+            if ( preString.toString ( ).length ( ) > 2 ) {
+                substring = preString.toString ( ).substring ( 0 , preString.toString ( ).length ( ) - 1 );
+            }
+            objectNode.put ( "prevCoursesString" , substring );
             arrayNode.add ( objectNode );
         }
         return arrayNode.toString ( );

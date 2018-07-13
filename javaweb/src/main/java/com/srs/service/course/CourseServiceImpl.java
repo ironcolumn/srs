@@ -2,7 +2,7 @@ package com.srs.service.course;
 
 import com.srs.dao.CourseRepository;
 import com.srs.domain.CourseCatalog;
-import com.srs.po.Course;
+import com.srs.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

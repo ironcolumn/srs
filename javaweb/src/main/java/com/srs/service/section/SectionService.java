@@ -1,8 +1,8 @@
 package com.srs.service.section;
 
-import com.srs.po.Professor;
-import com.srs.po.Section;
-import com.srs.po.SysUser;
+import com.srs.model.Professor;
+import com.srs.model.Section;
+import com.srs.model.SysUser;
 
 public interface SectionService {
 

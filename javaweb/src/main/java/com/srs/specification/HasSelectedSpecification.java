@@ -1,7 +1,7 @@
 package com.srs.specification;
 
-import com.srs.po.Course;
-import com.srs.po.Transcript;
+import com.srs.model.Course;
+import com.srs.model.Transcript;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
-public class SelectOnceSpecification implements Specification<Transcript > {
+public class HasSelectedSpecification implements Specification<Transcript > {
 
     @Override
     public boolean isSatisfiedBy(Transcript transcript) {

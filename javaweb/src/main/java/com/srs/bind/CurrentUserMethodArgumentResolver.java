@@ -1,6 +1,6 @@
 package com.srs.bind;
 
-import com.srs.po.SysUser;
+import com.srs.model.SysUser;
 import org.springframework.core.MethodParameter;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.support.WebDataBinderFactory;

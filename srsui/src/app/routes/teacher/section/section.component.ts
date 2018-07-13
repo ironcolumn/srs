@@ -16,14 +16,12 @@ export class TeacherSectionComponent implements OnInit {
 
   @ViewChild('st') st: SimpleTableComponent;
   columns: SimpleTableColumn[] = [
-    {title: '排课号', index: 'sectionSn'},
-    {title: '课程编号', index: 'courseSn'},
     {title: '课程名', index: 'courseName'},
-    {title: '学分', index: 'credit'},
     {title: '教室', index: 'room'},
     {title: '周次', index: 'dayOfWeek'},
+    {title: '学分', index: 'credit'},
     {title: '时间', index: 'timeOfDay'},
-    {title: '容量', index: 'capacityWithFraction'},
+    {title: '已选/容量', index: 'capacityWithFraction'},
     {
       title  : '',
       buttons: [

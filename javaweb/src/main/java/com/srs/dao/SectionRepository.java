@@ -1,6 +1,6 @@
 package com.srs.dao;
 
-import com.srs.po.Section;
+import com.srs.model.Section;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

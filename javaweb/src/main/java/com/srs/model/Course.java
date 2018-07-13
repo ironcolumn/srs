@@ -1,4 +1,4 @@
-package com.srs.po;
+package com.srs.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;

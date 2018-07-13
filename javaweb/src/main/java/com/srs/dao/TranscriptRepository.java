@@ -1,7 +1,7 @@
 package com.srs.dao;
 
-import com.srs.po.Student;
-import com.srs.po.Transcript;
+import com.srs.model.Student;
+import com.srs.model.Transcript;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
