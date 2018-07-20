@@ -1,0 +1,41 @@
+.home {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f5f7f8;
+}
+
+.navbar .dropdown-menu li a {
+  color: #200514;
+}
+
+.navbar-nav > .notifications-menu > .dropdown-menu > li .menu,
+.navbar-nav > .messages-menu > .dropdown-menu > li .menu,
+.navbar-nav > .tasks-menu > .dropdown-menu > li .menu {
+  max-height: 300px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: hidden;
+}
+
+.noticeContent {
+  font-family: Avenir-Medium, sans-serif;
+  font-size: 18px;
+  color: #737374;
+}
+
+.noticeContent ul {
+  font-family: Avenir-Medium, sans-serif;
+  font-size: 16px;
+  color: #737374;
+}
+
+.noticeAttachment {
+  font-family: Avenir-Medium, sans-serif;
+  font-size: 16px;
+  color: #bb0200;
+  cursor: pointer;
+}

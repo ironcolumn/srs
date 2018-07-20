@@ -1,0 +1,406 @@
+<div class="wrapper">
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a class="logo" [routerLink]="'/home'">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>双</b>预</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>风险预控云平台</b></span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <!--<li class="dropdown messages-menu">-->
+          <!--&lt;!&ndash; Menu toggle button &ndash;&gt;-->
+          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+          <!--<i class="fa fa-envelope-o"></i>-->
+          <!--<span class="label label-success">4</span>-->
+          <!--</a>-->
+          <!--<ul class="dropdown-menu">-->
+          <!--<li class="header">You have 4 messages</li>-->
+          <!--<li>-->
+          <!--&lt;!&ndash; inner menu: contains the messages &ndash;&gt;-->
+          <!--<ul class="menu">-->
+          <!--<li>&lt;!&ndash; start message &ndash;&gt;-->
+          <!--<a href="#">-->
+          <!--<div class="pull-left">-->
+          <!--&lt;!&ndash; User Image &ndash;&gt;-->
+          <!--<img src="../../assets/image/user.jpg" class="img-circle" alt="User Image">-->
+          <!--</div>-->
+          <!--&lt;!&ndash; Message title and timestamp &ndash;&gt;-->
+          <!--<h4>-->
+          <!--Support Team-->
+          <!--<small><i class="fa fa-clock-o"></i> 5 mins</small>-->
+          <!--</h4>-->
+          <!--&lt;!&ndash; The message &ndash;&gt;-->
+          <!--<p>Why not buy a new awesome theme?</p>-->
+          <!--</a>-->
+          <!--</li>-->
+          <!--&lt;!&ndash; end message &ndash;&gt;-->
+          <!--</ul>-->
+          <!--&lt;!&ndash; /.menu &ndash;&gt;-->
+          <!--</li>-->
+          <!--<li class="footer"><a href="#">See All Messages</a></li>-->
+          <!--</ul>-->
+          <!--</li>-->
+          <!-- /.messages-menu -->
+
+          <!-- Notifications Menu -->
+          <li class="dropdown notifications-menu">
+            <!-- Menu toggle button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">{{noticeCount}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">你有 {{noticeCount}} 通知</li>
+              <li>
+                <!-- Inner Menu: contains the notifications -->
+                <ul class="menu">
+                  <li *ngFor="let notice of notices,let i=index"><!-- start notification -->
+                    <a style="cursor:pointer;" (click)="noticeClick(notices[i])">
+                      <i class="fa fa-users text-aqua"></i> {{notice.title}}
+                    </a>
+                  </li>
+                  <!-- end notification -->
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <!-- Tasks Menu -->
+          <li class="dropdown tasks-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-flag-o"></i>
+              <span class="label label-danger">{{checkTaskCount+correctCount+reviewCount+approveCount+checkTableCount
+                +alertWarningCount+correctOutOfDateCount}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">你有
+                {{checkTaskCount+correctCount+reviewCount+approveCount+checkTableCount+alertWarningCount+correctOutOfDateCount}}
+                待办事项
+              </li>
+              <li class="">
+                <!-- Inner menu: contains the tasks -->
+                <ul class="menu">
+                  <li><!-- Task item -->
+                    <a (click)="navigateToDangerQuery() ">
+                      <!-- Task title and progress text -->
+                      <h5>
+                        重大风险预警
+                        <small class="pull-right">{{alertWarningCount}}</small>
+                      </h5>
+                    </a>
+                  </li>
+                  <li><!-- Task item -->
+                    <a>
+                      <!-- Task title and progress text -->
+                      <h5>
+                        我的检查任务
+                        <small class="pull-right">{{checkTaskCount}}</small>
+                      </h5>
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="'/home/correctConfirm'">
+                      <h5>
+                        需我整改的
+                        <small class="pull-right">{{correctCount}}</small>
+                      </h5>
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="'/home/review'">
+                      <h5>
+                        需我复查的
+                        <small class="pull-right">{{reviewCount}}</small>
+                      </h5>
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="'/home/approve'">
+                      <h5>
+                        需我审批的
+                        <small class="pull-right">{{approveCount}}</small>
+                      </h5>
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="'/home/checkTable'">
+                      <h5>
+                        我的检查表
+                        <small class="pull-right">{{checkTableCount}}</small>
+                      </h5>
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="'/home/correctConfirm'">
+                      <h5>
+                        过期未整改项
+                        <small class="pull-right">{{correctOutOfDateCount}}</small>
+                      </h5>
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- The user image in the navbar-->
+              <!--<img src="../../assets/image/user.jpg" class="user-image" alt="User Image">-->
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs">{{username}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header" style="height: 50px">
+                <!--<img src="../../assets/image/user.jpg" class="img-circle" alt="User Image">-->
+
+                <p>
+                  {{username}}
+                  <!--<small>Member since Nov. 2012</small>-->
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <!--<li class="user-body">-->
+              <!--<div class="row">-->
+              <!--<div class="col-xs-4 text-center">-->
+              <!--<a href="#">Followers</a>-->
+              <!--</div>-->
+              <!--<div class="col-xs-4 text-center">-->
+              <!--<a href="#">Sales</a>-->
+              <!--</div>-->
+              <!--<div class="col-xs-4 text-center">-->
+              <!--<a href="#">Friends</a>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--&lt;!&ndash; /.row &ndash;&gt;-->
+              <!--</li>-->
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <!--<a href="#" class="btn btn-default btn-flat">Profile</a>-->
+                </div>
+                <div class="pull-right">
+                  <a (click)="logOut()" class="btn btn-default btn-flat">退出</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a (click)="visible=!visible"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!--&lt;!&ndash; Sidebar user panel (optional) &ndash;&gt;-->
+      <!--<div class="user-panel">-->
+      <!--<div class="pull-left image">-->
+      <!--<img src="../../assets/image/user.jpg" class="img-circle" alt="User Image">-->
+      <!--</div>-->
+      <!--<div class="pull-left info">-->
+      <!--<p>{{username}}</p>-->
+      <!--&lt;!&ndash; Status &ndash;&gt;-->
+      <!--<a><i class="fa fa-circle text-success"></i> 在线</a>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--&lt;!&ndash; search form (Optional) &ndash;&gt;-->
+      <!--<form action="#" method="get" class="sidebar-form">-->
+      <!--<div class="input-group">-->
+      <!--<input type="text" name="q" class="form-control" [formControl]="searchContext" placeholder="搜索...">-->
+      <!--<span class="input-group-btn">-->
+      <!--<button type="button" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>-->
+      <!--</button>-->
+      <!--</span>-->
+      <!--</div>-->
+      <!--</form>-->
+      <!--&lt;!&ndash; /.search form &ndash;&gt;-->
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <!--<li class="header">菜单</li>-->
+        <li class="treeview" *ngFor="let item of itemsDisplay,let i=index">
+          <a *ngIf="!(item?.routerLink=='/home')" [routerLink]="item?.routerLink" [id]="i">
+            <i class="fa fa-link"></i>
+            <span>{{item?.label}}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right" *ngIf="item.items"></i>
+            </span>
+          </a>
+          <a *ngIf="item?.routerLink=='/home'" [id]="i" href="#">
+            <i class="fa fa-link"></i>
+            <span>{{item?.label}}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right" *ngIf="item.items"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li *ngFor="let secondItem of item.items">
+              <a [routerLink]="secondItem?.routerLink">
+                <i class="fa fa-circle-o"></i>
+                <span>{{secondItem?.label}}</span>
+                <span *ngIf="secondItem?.items" class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul *ngIf="secondItem?.items" class="treeview-menu">
+                <li *ngFor="let thirdItem of secondItem.items">
+                  <a [routerLink]="thirdItem?.routerLink">
+                    <span>{{thirdItem?.label}}</span>
+                    <span *ngIf="thirdItem?.items" class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul *ngIf="thirdItem?.items" class="treeview-menu">
+                    <li *ngFor="let forthItem of thirdItem.items">
+                      <a [routerLink]="forthItem?.routerLink">{{forthItem?.label}}</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content container-fluid">
+      <router-outlet></router-outlet>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      简化您的安全管理！
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2018 <a href="#">徐州简安管理软件有限公司</a>.</strong>
+    <a href="http://www.miitbeian.gov.cn" target="_blank">苏ICP备17005937号-2.</a>
+  </footer>
+
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark" [ngClass]="{'control-sidebar-open' : visible}">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane active" id="control-sidebar-home-tab">
+        <h3 class="control-sidebar-heading">Recent Activity</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript:">
+              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                <p>Will be 23 on April 24th</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+        <h3 class="control-sidebar-heading">Tasks Progress</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript:">
+              <h4 class="control-sidebar-subheading">
+                Custom Template Design
+                <span class="pull-right-container">
+                  <span class="label label-danger pull-right">70%</span>
+                </span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+      </div>
+      <!-- /.tab-pane -->
+      <!-- Stats tab content -->
+      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+      <!-- /.tab-pane -->
+      <!-- Settings tab content -->
+      <div class="tab-pane" id="control-sidebar-settings-tab">
+        <form method="post">
+          <h3 class="control-sidebar-heading">General Settings</h3>
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Report panel usage
+              <input type="checkbox" class="pull-right" checked>
+            </label>
+
+            <p>
+              Some information about this general settings option </p>
+          </div>
+          <!-- /.form-group -->
+        </form>
+      </div>
+      <!-- /.tab-pane -->
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+
+<!------------------------Notice对话框---------------------------->
+<p-dialog header="{{noticeDisplay?.title}}" [(visible)]="displayNotice" [modal]="true" [width]="800">
+  <small>通知人：{{noticeDisplay?.authorName}}</small>
+  <small>通知时间：{{noticeDisplay?.dateTime | date:'yyyy年MM月dd日 HH:mm'}}</small>
+  <div class="ql-editor">
+    <div [innerHtml]="noticeDisplay?.content"></div>
+  </div>
+  <br>
+  <p *ngIf="noticeDisplay?.noticeAttachment.length>0">附件:</p>
+  <ul>
+    <li *ngFor="let item of noticeDisplay?.noticeAttachment,let i=index">
+      <a (click)="download(noticeDisplay?.noticeAttachment[i])">
+        <p class="noticeAttachment">{{item.logicalFilename}}</p>
+      </a>
+    </li>
+  </ul>
+</p-dialog>
