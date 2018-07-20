@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/images/images.iml" filepath="$PROJECT_DIR$/images/images.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaweb/srs.iml" filepath="$PROJECT_DIR$/javaweb/srs.iml" />
       <module fileurl="file://$PROJECT_DIR$/srsui/srsui.iml" filepath="$PROJECT_DIR$/srsui/srsui.iml" />
     </modules>
